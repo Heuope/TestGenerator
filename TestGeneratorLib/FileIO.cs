@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestGenerator
+namespace TestGeneratorLib
 {
     class FileIO
     {
@@ -16,13 +16,13 @@ namespace TestGenerator
             }
         }
 
-        public async Task WriteFileAsync(string destination, List<string> files)
+        public async Task WriteFileAsync(string destination, List<TestFile> files)
         {
             foreach (var file in files)
             {
-                using (var writer = new StreamWriter($@"{destination}\"))
+                using (var writer = new StreamWriter($@"{destination}\{file.FileName}.cs"))
                 {
-                    await writer.WriteAsync(file);
+                    await writer.WriteAsync(file.FileCode);
                 }
             }
         }

@@ -31,6 +31,7 @@ namespace TestGeneratorLib
         private ClassDeclarationSyntax GenerateClass(ClassDeclarationSyntax context)
         {
             var generatedClass = SyntaxFactory.ClassDeclaration(context.Identifier).AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword));
+
             return generatedClass.AddMembers(GenerateMethods(context));
         }
 
@@ -70,7 +71,6 @@ namespace TestGeneratorLib
                     FileName = item.DescendantNodes().OfType<ClassDeclarationSyntax>().First().Identifier.ValueText,
                     FileCode = item.NormalizeWhitespace().ToFullString()
                 });
-
             }
             return files;
         }
