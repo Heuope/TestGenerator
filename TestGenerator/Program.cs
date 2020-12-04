@@ -12,10 +12,12 @@ namespace TestGenerator
             var test = new Tester();
             string dirPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
             string dest = @$"{dirPath}\TestClassesResult";
+
             var sourceList = new List<string>()
             {
                 @$"{dirPath}\TestClasses\Class1.cs"
             };
+
             test.GenerateTests(sourceList, dest, 5).Wait();
         }
     }
