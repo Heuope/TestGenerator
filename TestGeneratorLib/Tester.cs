@@ -4,7 +4,7 @@ using System.Threading.Tasks.Dataflow;
 
 namespace TestGeneratorLib
 {
-    class Tester
+    public class Tester
     {
         private readonly FileIO _fileIO;
         private readonly Generator _generator;
